@@ -1,0 +1,100 @@
+Prompt:
+Write a detailed, 3000-word blog post on a **relevant, trending, and interesting technology topic** that you select yourself. Choose a topic suitable for a **tech-savvy but non-expert audience**—something informative, practical, and likely to appeal to developers, makers, indie hackers, or startup tech teams.
+
+The blog post should:
+
+1. Include a **natural, human-like tone**, storytelling, and clear explanations.  
+2. Follow **SEO best practices**, including keyword usage, headers (`<h1>`, `<h2>`, `<h3>`), and bullet points.  
+3. Cover:  
+   - What the topic is  
+   - Why it matters  
+   - How it works (brief technical explanation)  
+   - Key features, pros/cons  
+   - Real-world use cases or examples  
+   - Integration with other tools (if applicable)  
+   - Data privacy, performance, or security considerations  
+   - Getting started / step-by-step tutorial or walkthrough  
+   - Tips or best practices  
+   - Future trends or what's next  
+4. Include internal linking suggestions (e.g., "Related: [Tool Name] Tutorial") and a **clear call-to-action** like "Try it today", "Subscribe for updates", or "Start building your project".
+
+Use relevant SEO keywords naturally such as:  
+- “[topic] tutorial”  
+- “how to use [topic]”  
+- “[topic] examples”  
+- “best [topic] tools”  
+- “[topic] for developers”
+
+Ensure readability, good formatting, and natural transitions. Avoid repetitive or robotic phrasing.
+
+Additionally, generate a short descriptive prompt for a **header image** in **landscape ratio** that visually represents the chosen topic. The prompt should be suitable for creating an engaging and relevant blog header image.
+
+
+System Message:
+You are an expert technical content writer specializing in workflow automation, open-source software, and SEO-focused blogging. Write with a knowledgeable yet approachable voice, blending technical accuracy with engaging storytelling. Your audience includes tech-savvy beginners, mid-level developers, and automation enthusiasts eager to learn practical insights.
+
+Your task is to create an informative, well-structured, and highly readable blog post of about 3000 words on the open-source automation platform “n8n.” Use clear technical explanations, real-world examples, and persuasive reasoning to highlight n8n’s value, while maintaining a warm and professional tone.
+
+Follow SEO best practices throughout:  
+- Use appropriate headings (H1, H2, H3) to organize content clearly.  
+- Naturally weave in relevant keywords related to n8n and automation.  
+- Structure the article with a strong introduction, coherent main body, and a compelling conclusion.  
+- Ensure smooth transitions and varied sentence length for readability.  
+- Avoid unnecessary filler, redundancy, or robotic phrasing.
+
+Within the article, please also provide a short, descriptive prompt suitable for generating a **header image in landscape ratio** that visually represents the n8n platform or workflow automation concept, ideal for a blog header.
+
+Conclude with a motivating call-to-action that encourages readers to explore, try, or install n8n.
+
+Maintain an objective, helpful, and human tone throughout the content.
+
+
+Output Parser:
+{
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string"
+    },
+    "blog_content": {
+      "type": "string"
+    },
+    "header_image_prompt": {
+      "type": "string"
+    }
+  },
+  "required": ["title", "blog_content", "header_image_prompt"]
+}
+
+
+Blogger Credentials
+Name: Blogger OAuth
+Grant Type: Authorization Code
+Auth URL: https://accounts.google.com/o/oauth2/v2/auth
+Access Token URL: https://oauth2.googleapis.com/token
+Scope: https://www.googleapis.com/auth/blogger
+Auth URI Parameters: access_type=offline&prompt=consent
+
+
+curl --request POST \
+     --url https://cloud.leonardo.ai/api/rest/v1/generations \
+     --header 'accept: application/json' \
+     --header 'authorization: Bearer YOUR_API_KEY' \
+     --header 'content-type: application/json' \
+     --data '
+{
+  "alchemy": true,
+  "height": 768,
+  "modelId": "b24e16ff-06e3-43eb-8d33-4416c2d75876",
+  "num_images": 4,
+  "presetStyle": "DYNAMIC",
+  "prompt": "A majestic cat in the snow",
+  "width": 1024
+}
+'
+
+
+curl --request GET \
+     --url https://cloud.leonardo.ai/api/rest/v1/generations/id \
+     --header 'accept: application/json' \
+     --header 'authorization: Bearer YOUR_API_KEY'
